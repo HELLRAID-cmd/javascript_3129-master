@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="main.js" defer></script>
+  <title>Document</title>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    fieldset {
+      border: none;
+    }
+
+    textarea {
+      width: 400px;
+      height: 100px;
+    }
+    
+    .button {
+      width: 200px;
+    }
+
+    .interest {
+      display: flex;
+      flex-direction: column;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Форма опроса</h1>
+<form id="form" action="#" method="get">
+  <label for="userName">
+    Имя пользователя:
+    <input id="userName" type="text" name="name" required>
+  </label>
+
+  <label for="userEmail">
+    Email:
+    <input id="userEmail" type="email" name="email" required>
+  </label>
+
+  <fieldset>
+    <legend>Пол:</legend>
+    <label for="male">
+      <input type="radio" name="floor" id="male" value="male" required> Мужской
+    </label>
+    <label for="female">
+      <input type="radio" name="floor" id="female" value="female"> Женский
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Оценка сервиса:</legend>
+    <label for="grade">
+      <input type="range" name="grade" id="userGrade" min="0" max="10">
+    </label>
+  </fieldset>
+
+  <fieldset class="interest">
+    <legend>Интересы пользователей:</legend>
+    <label for="interest-sport">
+      <input type="checkbox" name="interest" id="interest-sport" value="sport"> Спорт
+    </label>
+    <label for="interest-music">
+      <input type="checkbox" name="interest" id="interest-music" value="music"> Музыка
+    </label>
+    <label for="interest-travel">
+      <input type="checkbox" name="interest" id="interest-travel" value="travel"> Музыка
+    </label>
+    <label for="interest-movie">
+      <input type="checkbox" name="interest" id="interest-movie" value="movie"> Музыка
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Дополнительные комментарии:</legend>
+    <label for="comments">
+      <textarea name="textarea" id="textarea"></textarea>
+    </label>
+  </fieldset>
+
+  <button class="button" type="submit">Отправить</button>
+</form>
+
+<div id="submitting-form"></div>
+
+</body>
+</html>
