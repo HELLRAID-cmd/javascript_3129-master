@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="main,.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Создание банковской карты</h1>
+  <form class="form" action="#" method="get">
+    <label for="cardText">
+      Текс карты:
+      <input type="text" name="cardText" id="cardText" required>
+    </label>
+
+    <fieldset>
+      <legend>Цвет карты:</legend>
+      <label for="color-red">
+        <input type="radio" name="color" id="color-red" required> Красный
+      </label>
+
+      <label for="color-blue">
+        <input type="radio" name="color" id="color-blue" required> Синий
+      </label>
+
+      <label for="color-green">
+        <input type="radio" name="color" id="color-green" required> Зеленый
+      </label>
+    </fieldset>
+
+    <button class="button" type="submit">Сделать банковскую карту</button>
+  </form>
+  
+  <div class="card">
+    <!-- <div class="card__wrapper">
+      <p class="card__wrapper-desc">Lorem ipsum dolor sit amet consectetur.</p>
+    </div> -->
+  </div>
+</body>
+</html>
