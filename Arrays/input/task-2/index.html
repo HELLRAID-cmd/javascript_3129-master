@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="main.js" defer></script>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+      gap: 10px;
+    }
+
+    .button {
+      width: 200px;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+  <h1>Калькулятор стоимости доставки</h1>
+  <form id="form" action="#" method="get">
+    <label for="product">
+      Название товара:
+      <input type="text" name="product" id="product" required>
+    </label>
+
+    <label for="scales">
+      Вес товара(кг):
+      <input type="number" name="scales" id="scales" required>
+    </label>
+
+    <label for="distance">
+      Расстояние доставки(км):
+      <input type="number" name="distance" id="distance" required>
+    </label>
+
+    <button class="button" type="submit">Добавить товар</button>
+  </form>
+  <p class="error"></p>
+  
+  <table class="product-table">
+    <thead>
+        <tr>
+            <th>Название товара</th>
+            <th>Вес (кг)</th>
+            <th>Расстояние (км)</th>
+            <th>Стоимость доставки</th>
+        </tr>
+    </thead>
+    <tbody id="tablet-body">
+
+        <!-- Здесь будут добавляться товары -->
+    </tbody>
+</table>
+</body>
+</html>
