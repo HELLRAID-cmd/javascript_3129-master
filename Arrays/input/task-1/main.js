@@ -10,10 +10,10 @@ const userTextarea = document.querySelector("#textarea");
 
 const form = document.querySelector("#form");
 
-const buttonSubmit = document.querySelector("button");
+// const buttonSubmit = document.querySelector("button");
 const submittingForm = document.querySelector("#submitting-form");
 
-buttonSubmit.addEventListener("click", function (e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (!userName.value.trim() || !userEmail.value.trim()) {
     e.preventDefault();
