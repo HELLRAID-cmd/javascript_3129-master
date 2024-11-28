@@ -28,7 +28,7 @@ form.addEventListener('submit', function(event) {
   //*Цвет карты
   const selectedColor = document.querySelector('input[name="color"]:checked');
   if (selectedColor) {
-    cardWrapper.style.backgroundColor = selectedColor.id.replace('color-', ''); // Установка цвета фона
+    cardWrapper.style.backgroundColor = selectedColor.id.replace('color-', '');
   }
 
   card.append(cardWrapper);
@@ -36,3 +36,11 @@ form.addEventListener('submit', function(event) {
   cardText.value = "";
   document.querySelectorAll('input[name="color"]').forEach((radio) => (radio.checked = false));
 })
+
+cardText.addEventListener('focus', function() {
+  cardText.style.backgroundColor = 'aqua'; 
+});
+
+cardText.addEventListener('blur', function() {
+  cardText.style.backgroundColor = ''; 
+});
