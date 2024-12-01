@@ -2,9 +2,7 @@ const product = document.querySelector("#product");
 const scales = document.querySelector("#scales");
 const distance = document.querySelector("#distance");
 const tabletBody = document.querySelector("#tablet-body");
-
 const paragraphError = document.querySelector(".error");
-
 const form = document.querySelector("#form");
 
 form.addEventListener("submit", function (event) {
