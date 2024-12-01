@@ -15,22 +15,11 @@
       <input type="text" name="cardText" id="cardText" required>
     </label>
 
-    <fieldset>
-      <legend>Цвет карты:</legend>
-      <label for="color-red">
-        <input type="radio" name="color" id="color-red" required> Красный
-      </label>
-
-      <label for="color-blue">
-        <input type="radio" name="color" id="color-blue" required> Синий
-      </label>
-
-      <label for="color-green">
-        <input type="radio" name="color" id="color-green" required> Зеленый
-      </label>
-    </fieldset>
-
-    <button class="button" type="submit">Сделать банковскую карту</button>
+    <select id="select">
+      <option value="red">Красный</option>
+      <option value="blue">Синий</option>
+      <option value="green">Зеленый</option>
+    </select>
   </form>
   
   <div class="card"></div>
