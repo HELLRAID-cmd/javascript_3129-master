@@ -4,6 +4,7 @@ const select = document.querySelector('#select');
 
 cardText.addEventListener('input', function() {
   card.innerText = cardText.value;
+  card.style.color = "#fff"
 });
 
 select.addEventListener('change', function() {

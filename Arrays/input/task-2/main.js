@@ -5,9 +5,13 @@ const tabletBody = document.querySelector("#tablet-body");
 const paragraphError = document.querySelector(".error");
 const form = document.querySelector("#form");
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
+const createElement = function (tag, textContent) {
+  const element = document.createElement(tag);
+  element.textContent = textContent;
+  return element;
+};
 
+const renderTablet = () => {
   if (scales.value <= 0 || distance.value <= 0) {
     event.preventDefault();
     paragraphError.textContent = `Пожалуйста введите корректное значение для веса и расстояния.`;
@@ -15,32 +19,35 @@ form.addEventListener("submit", function (event) {
     return;
   }
 
-  const tabletRow = document.createElement("tr");
-  tabletBody.append(tabletRow);
+  const tabletRow = createElement("tr");
 
   //* Название товара
-  const tabletDescProduct = document.createElement("td");
-  tabletDescProduct.textContent = product.value;
-  tabletRow.append(tabletDescProduct);
+  const tabletDescProduct = createElement("td", product.value);
 
   //* Вес товара
-  const tabletDescScales = document.createElement("td");
-  tabletDescScales.textContent = scales.value;
-  tabletRow.append(tabletDescScales);
+  const tabletDescScales = createElement("td", scales.value);
 
   //* Расстояние доставки
-  const tabletDescDistance = document.createElement("td");
-  tabletDescDistance.textContent = distance.value;
-  tabletRow.append(tabletDescDistance);
+  const tabletDescDistance = createElement("td", distance.value);
 
   //*Стоимость доставки
-  const tabletDescDelivery = document.createElement("td");
+  const tabletDescDelivery = createElement("td");
   const deliveryCosts = (scales.value * distance.value) / 10;
   tabletDescDelivery.textContent = deliveryCosts;
-  tabletRow.append(tabletDescDelivery);
 
-  product.value = "";
-  scales.value = "";
-  distance.value = "";
-  deliveryCosts.value = "";
-});
+  tabletRow.append(
+    tabletDescProduct,
+    tabletDescScales,
+    tabletDescDistance,
+    tabletDescDelivery
+  );
+  tabletBody.append(tabletRow);
+};
+
+const unFormSubmit = (e) => {
+  e.preventDefault();
+  renderTablet();
+  form.reset();
+};
+
+form.addEventListener("submit", unFormSubmit);
