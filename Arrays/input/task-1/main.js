@@ -31,10 +31,8 @@ const renderResult = () => {
    const floorParagraph = createElement("p");
    if (userFloorMale.checked) {
      floorParagraph.textContent = `Пол: Мужской`;
-     submittingForm.append(floorParagraph)
    } else if (userFloorFemale.checked) {
      floorParagraph.textContent = `Пол: Женский`;
-     submittingForm.append(floorParagraph)
    }
  
    //* Оценка сервиса
@@ -53,10 +51,11 @@ const renderResult = () => {
    //*Дополнительные комментарии
    const commentsParagraph = createElement("p", `Дополнительные комментраии: ${userTextarea.value || "Нет комментариев"}`);
 
-   submittingForm.append(headerText, nameParagraph, emailParagraph, gradeParagraph, interestParagraph, commentsParagraph);
+   submittingForm.append(headerText, nameParagraph, emailParagraph, floorParagraph, gradeParagraph, interestParagraph, commentsParagraph);
 }
 
-const unFormSubmit = () => {
+const unFormSubmit = (e) => {
+  e.preventDefault();
   renderResult();
   form.reset();
 }
