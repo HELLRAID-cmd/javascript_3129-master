@@ -44,10 +44,10 @@ const renderTablet = () => {
   tabletBody.append(tabletRow);
 };
 
-const unFormSubmit = (e) => {
+const onFormSubmit = (e) => {
   e.preventDefault();
   renderTablet();
   form.reset();
 };
 
-form.addEventListener("submit", unFormSubmit);
+form.addEventListener("submit", onFormSubmit);
