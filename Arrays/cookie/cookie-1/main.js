@@ -6,6 +6,6 @@ setTimeout(() => {
   card.classList.remove('card--hidden');
 }, 3000);
 
-cardButton.onclick = function() { //мог сделать через addEventListener, но решил вспомнить onclick
+cardButton.onclick = function() { // мог сделать через addEventListener, но решил вспомнить onclick
   card.classList.add('card--hidden');
 };

@@ -12,8 +12,8 @@ const submittingForm = document.querySelector("#submitting-form");
 const createElement = function(tag, textContent) {
   const element = document.createElement(tag);
   element.textContent = textContent;
-  return element
-}
+  return element;
+};
 
 const renderResult = () => {
   submittingForm.innerHTML = "";
