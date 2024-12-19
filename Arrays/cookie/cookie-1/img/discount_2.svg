@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Символ % -->
+  <line x1="20" y1="80" x2="80" y2="20" stroke="url(#rainbowGradient)" stroke-width="10" />
+  <circle cx="25" cy="25" r="15" fill="url(#goldenGradient)" />
+  <circle cx="75" cy="75" r="15" fill="url(#goldenGradient)" />
+  
+  <!-- Градиенты -->
+  <defs>
+    <linearGradient id="rainbowGradient" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ff0000" />
+      <stop offset="20%" stop-color="#ffa500" />
+      <stop offset="40%" stop-color="#ffff00" />
+      <stop offset="60%" stop-color="#008000" />
+      <stop offset="80%" stop-color="#0000ff" />
+      <stop offset="100%" stop-color="#800080" />
+    </linearGradient>
+    <radialGradient id="goldenGradient">
+      <stop offset="0%" stop-color="#ffd700" />
+      <stop offset="100%" stop-color="#ffa500" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Фейерверки -->
+  <g>
+    <line x1="50" y1="10" x2="50" y2="20" stroke="#ff69b4" stroke-width="2" />
+    <line x1="45" y1="15" x2="55" y2="15" stroke="#87cefa" stroke-width="2" />
+    <line x1="46" y1="12" x2="54" y2="18" stroke="#ffd700" stroke-width="2" />
+    <line x1="54" y1="12" x2="46" y2="18" stroke="#32cd32" stroke-width="2" />
+  </g>
+
+  <g>
+    <line x1="50" y1="90" x2="50" y2="80" stroke="#ff69b4" stroke-width="2" />
+    <line x1="45" y1="85" x2="55" y2="85" stroke="#87cefa" stroke-width="2" />
+    <line x1="46" y1="88" x2="54" y2="82" stroke="#ffd700" stroke-width="2" />
+    <line x1="54" y1="88" x2="46" y2="82" stroke="#32cd32" stroke-width="2" />
+  </g>
+</svg>

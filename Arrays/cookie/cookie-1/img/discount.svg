@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  
+  <!-- Символ % -->
+  <line x1="25" y1="75" x2="75" y2="25" stroke="#ff6f61" stroke-width="8" />
+  <circle cx="25" cy="25" r="12" fill="#ff6f61" />
+  <circle cx="75" cy="75" r="12" fill="#ff6f61" />
+  
+  <!-- Украшение: блестки -->
+  <circle cx="20" cy="20" r="3" fill="#ffffff" opacity="0.8" />
+  <circle cx="30" cy="30" r="2" fill="#ffffff" opacity="0.8" />
+  <circle cx="70" cy="70" r="3" fill="#ffffff" opacity="0.8" />
+  <circle cx="80" cy="80" r="2" fill="#ffffff" opacity="0.8" />
+  
+  <!-- Конфетти -->
+  <rect x="10" y="10" width="5" height="5" fill="#ffd700" transform="rotate(45, 12.5, 12.5)" />
+  <rect x="85" y="10" width="5" height="5" fill="#87cefa" transform="rotate(30, 87.5, 12.5)" />
+  <rect x="10" y="85" width="5" height="5" fill="#32cd32" transform="rotate(15, 12.5, 87.5)" />
+  <rect x="85" y="85" width="5" height="5" fill="#ff69b4" transform="rotate(60, 87.5, 87.5)" />
+</svg>
