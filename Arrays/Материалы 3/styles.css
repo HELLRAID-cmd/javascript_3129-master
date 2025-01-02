@@ -93,8 +93,16 @@ td {
 }
 
 .input-checkbox {
+  appearance: none;
   width: 20px;
   height: 20px;
-  border-radius: 15px;
-  background-color: none;
+  border: 2px solid #000;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.input-checkbox:checked {
+  background-color: #4caf50;
+  border-color: #4caf50;
 }
