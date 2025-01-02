@@ -84,3 +84,10 @@ td {
 .row {
   align-items: center;
 }
+
+.input-element {
+  width: 100px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid black;
+}

@@ -44,27 +44,30 @@ function createInput(film, key) {
   const inputElement = createElement('input');
   inputElement.type = 'text';
   inputElement.value = film[key];
+  inputElement.classList.add('input-element');
   return inputElement;
 };
 
-function changeCreateButton(film, films, index, filmCell, genreCell) {
+function changeCreateButton(film, films, index, filmCell, genreCell, releaseYearCell) {
   const button = createElement('button', 'Изменить');
   button.classList.add('button-change');
 
   button.addEventListener('click', () => {
-    const inputTitle = createInput(film, 'title')
-    const inputGenre = createInput(film, 'genre')
-
+    const inputTitle = createInput(film, 'title');
+    const inputGenre = createInput(film, 'genre');
+    const releaseYear = createInput(film, 'releaseYear');
 
     function saveChanges(e) {
       if(e.key === 'Enter' || e.type === 'click') {
-        if(inputTitle.value.trim() === "" || inputGenre.value.trim() === "") {
+        if(inputTitle.value.trim() === "" || inputGenre.value.trim() === "" || inputGenre.value.trim() === "") {
           alert('Введите корректные данные!');
           return;
         };
 
         films[index].title = inputTitle.value;
         films[index].genre = inputGenre.value;
+        films[index].releaseYear = releaseYear.value;
+
         localStorage.setItem('films', JSON.stringify(films));
         renderTablet();
       };
@@ -72,12 +75,15 @@ function changeCreateButton(film, films, index, filmCell, genreCell) {
 
     inputTitle.addEventListener('keydown', saveChanges);
     inputGenre.addEventListener('keydown', saveChanges);
+    releaseYear.addEventListener('keydown', saveChanges);
 
     filmCell.innerHTML = "";
     genreCell.innerHTML = "";
+    releaseYearCell.innerHTML = "";
 
     filmCell.append(inputTitle);
     genreCell.append(inputGenre);
+    releaseYearCell.append(releaseYear);
 
     button.addEventListener('click', saveChanges);
     inputTitle.focus();
@@ -109,7 +115,7 @@ function renderTablet() {
     const actionCell = document.createElement('td');
 
     const deleteButton = deleteCreateButton(index);
-    const changeButton = changeCreateButton(film, films, index, filmCell, genreCell);
+    const changeButton = changeCreateButton(film, films, index, filmCell, genreCell, releaseYearCell);
 
     const containerButton = createContainerButton(changeButton, deleteButton);
     actionCell.append(containerButton);
