@@ -65,3 +65,21 @@ th {
 td {
   vertical-align: top;
 }
+
+.button-delete,
+.button-change {
+  width: 100px;
+  padding: 15px;
+  background-color: red;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button-change {
+  background-color: green;
+}
+
+.row {
+  align-items: center;
+}

@@ -19,11 +19,61 @@ function handlFormSubmit(e) {
   filmForm.reset();
 };
 
+const createElement = function(tag, content) {
+  const element = document.createElement(tag);
+  element.textContent = content;
+  return element;
+};
+
+function createContainerButton(buttonChan, buttondel) {
+  const containerButton = document.createElement('div');
+  containerButton.style.display = 'flex';
+  containerButton.style.gap = '10px';
+  containerButton.append(buttonChan, buttondel);
+  return containerButton;
+};
+
+function deleteCreateButton(index) {
+  const button = createElement('button', 'Удалить');
+  button.classList.add('button-delete');
+  button.addEventListener('click', () => deleteFilmLocalStorage(index));
+  return button;
+};
+
+function changeCreateButton(film, films, index, filmCell) {
+  const button = createElement('button', 'Изменить');
+  button.classList.add('button-change');
+
+  button.addEventListener('click', () => {
+    const inputTitle = createElement('input');
+    inputTitle.type = 'text';
+    inputTitle.value = film.title;
+
+    const inputGenre = createElement('input');
+    inputGenre.type = 'text';
+    inputGenre.value = film.genre;
+
+    const saveButton = createElement('')
+
+    input.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') {
+        films[index].title = input.value;
+        films[index].genre = inputGenre.value;
+        localStorage.setItem('films', JSON.stringify(films));
+        renderTablet();
+      };
+    });
+    filmCell.innerHTML = "";
+    filmCell.append(input, inputGenre);
+    input.focus();
+  });
+  return button;
+};
+
 function addFilmToLocalStorage(film) {
   const films = JSON.parse(localStorage.getItem('films')) || [];
   films.push(film);
   localStorage.setItem('films', JSON.stringify(films));
-
   renderTablet();
 };
 
@@ -33,16 +83,33 @@ function renderTablet() {
   const filmTableBody = document.getElementById('film-tbody');
   filmTableBody.innerHTML = "";
 
-  films.forEach((film) => {
+  films.forEach((film, index) => {
     const row = document.createElement('tr');
-    row.innerHTML = `
-    <td>${film.title}</td>
-    <td>${film.genre}</td>
-    <td>${film.releaseYear}</td>
-    <td>${film.isWatched ? "Да" : "Нет"}</td>
-    `;
+    
+    const filmCell = createElement('td', film.title);
+    const genreCell = createElement('td', film.genre);
+    const releaseYearCell = createElement('td', film.releaseYear);
+    const isWatchedCell = createElement('td', film.isWatched ? "Да" : "Нет");
+
+    const actionCell = document.createElement('td');
+
+    const deleteButton = deleteCreateButton(index);
+    const changeButton = changeCreateButton(film, films, index, filmCell);
+
+    const containerButton = createContainerButton(changeButton, deleteButton);
+    actionCell.append(containerButton);
+
+    row.append(filmCell, genreCell, releaseYearCell, isWatchedCell, actionCell);
+
     filmTableBody.append(row);
   });
+};
+
+function deleteFilmLocalStorage(index) {
+  const films = JSON.parse(localStorage.getItem('films')) || [];
+  films.splice(index, 1);
+  localStorage.setItem('films', JSON.stringify(films));
+  renderTablet();
 };
 
 filmForm.addEventListener('submit', handlFormSubmit);
