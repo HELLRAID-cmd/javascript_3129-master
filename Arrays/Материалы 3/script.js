@@ -40,33 +40,48 @@ function deleteCreateButton(index) {
   return button;
 };
 
-function createInput(film, key) {
+function createInput(film, key, type = 'text') {
   const inputElement = createElement('input');
-  inputElement.type = 'text';
+  inputElement.type = type;
   inputElement.value = film[key];
   inputElement.classList.add('input-element');
   return inputElement;
 };
 
-function changeCreateButton(film, films, index, filmCell, genreCell, releaseYearCell) {
+function createCheckbox(film, key) {
+  const inputCheckboxElement = createElement('input');
+  inputCheckboxElement.type = 'checkbox';
+  inputCheckboxElement.checked = film[key];
+  inputCheckboxElement.classList.add('input-checkbox')
+  return inputCheckboxElement;
+};
+
+function changeCreateButton(film, films, index, filmCell, genreCell, releaseYearCell, isWatchedCell) {
   const button = createElement('button', 'Изменить');
   button.classList.add('button-change');
 
   button.addEventListener('click', () => {
     const inputTitle = createInput(film, 'title');
     const inputGenre = createInput(film, 'genre');
-    const releaseYear = createInput(film, 'releaseYear');
+    const releaseYear = createInput(film, 'releaseYear', 'number');
+    const isWatched = createCheckbox(film, 'isWatched');
 
     function saveChanges(e) {
       if(e.key === 'Enter' || e.type === 'click') {
-        if(inputTitle.value.trim() === "" || inputGenre.value.trim() === "" || inputGenre.value.trim() === "") {
+        if(inputTitle.value.trim() === "" || inputGenre.value.trim() === "" || releaseYear.value.trim() === "") {
           alert('Введите корректные данные!');
           return;
         };
 
+        if(releaseYear.value < 1955 || releaseYear.value >= 2025) {
+          alert('Введите корректный год от 1955 до 2025');
+          return;
+        }
+
         films[index].title = inputTitle.value;
         films[index].genre = inputGenre.value;
         films[index].releaseYear = releaseYear.value;
+        films[index].isWatched = isWatched.checked;
 
         localStorage.setItem('films', JSON.stringify(films));
         renderTablet();
@@ -80,10 +95,12 @@ function changeCreateButton(film, films, index, filmCell, genreCell, releaseYear
     filmCell.innerHTML = "";
     genreCell.innerHTML = "";
     releaseYearCell.innerHTML = "";
+    isWatchedCell.innerHTML = "";
 
     filmCell.append(inputTitle);
     genreCell.append(inputGenre);
     releaseYearCell.append(releaseYear);
+    isWatchedCell.append(isWatched);
 
     button.addEventListener('click', saveChanges);
     inputTitle.focus();
@@ -115,7 +132,7 @@ function renderTablet() {
     const actionCell = document.createElement('td');
 
     const deleteButton = deleteCreateButton(index);
-    const changeButton = changeCreateButton(film, films, index, filmCell, genreCell, releaseYearCell);
+    const changeButton = changeCreateButton(film, films, index, filmCell, genreCell, releaseYearCell, isWatchedCell);
 
     const containerButton = createContainerButton(changeButton, deleteButton);
     actionCell.append(containerButton);
