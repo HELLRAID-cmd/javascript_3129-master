@@ -53,19 +53,17 @@ function changeCreateButton(film, films, index, filmCell) {
     inputGenre.type = 'text';
     inputGenre.value = film.genre;
 
-    const saveButton = createElement('')
-
-    input.addEventListener('keydown', (e) => {
+    inputTitle.addEventListener('keydown', (e) => {
       if(e.key === 'Enter') {
-        films[index].title = input.value;
+        films[index].title = inputTitle.value;
         films[index].genre = inputGenre.value;
         localStorage.setItem('films', JSON.stringify(films));
         renderTablet();
       };
     });
     filmCell.innerHTML = "";
-    filmCell.append(input, inputGenre);
-    input.focus();
+    filmCell.append(inputTitle, inputGenre);
+    inputTitle.focus();
   });
   return button;
 };
